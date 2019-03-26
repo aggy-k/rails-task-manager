@@ -1,0 +1,22 @@
+<h1 class='text-center'>Create new task</h1>
+
+<%= form_for(@task) do |f| %>
+<div class="box">
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :details %>
+    <%= f.text_area :details, size: "60x12", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+
+    <%= f.check_box :completed %>
+    <%= f.label :completed %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+</div>
+<% end %>
