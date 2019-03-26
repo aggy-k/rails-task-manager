@@ -1,9 +1,17 @@
-<h1>My Tasks</h1>
+<div class="box">
+  <h1>My Tasks</h1>
 
-<% @tasks.each do |task| %>
-  <p><%= check_box_tag(:completed) %><strong><%= link_to task.title, task_path(task) %></strong> - Completed: <%= task.completed %>
-    <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Do you really want to delete '#{task.title}'?"} %></p>
+  <% @tasks.each do |task| %>
+    <p><% if task.completed %>
+      <i class="far fa-check-square"></i>
+    <% else %>
+      <span class="greyed"><i class="far fa-check-square"></i></span>
+    <% end %>
+      <strong><%= link_to task.title, task_path(task) %></strong> - Completed: <%= task.completed %>
+      <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: "Do you really want to delete '#{task.title}'?"} %></p>
 
-<% end %>
+  <% end %>
 
-<%= link_to "Create new task", tasks_new_path %>
+  <%= link_to "Create new task", tasks_new_path %>
+</div>
+
